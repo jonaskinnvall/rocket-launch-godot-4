@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://y8pe7ehapjrm"]
+[gd_scene load_steps=8 format=3 uid="uid://y8pe7ehapjrm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_dpciy"]
 [ext_resource type="Texture2D" uid="uid://dbjg6mrbw7off" path="res://rocket_ship.png" id="1_paqm0"]
 [ext_resource type="Texture2D" uid="uid://djj1ujv0cynsc" path="res://rocket_ship_launch.png" id="3_5dbwd"]
+[ext_resource type="Texture2D" uid="uid://b8mdsb2wtbr0k" path="res://launch_button.png" id="4_h1x3o"]
 
 [sub_resource type="Animation" id="Animation_gd4uq"]
 resource_name = "launch"
@@ -49,6 +50,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_paqm0")
 
 [node name="RocketFlare" type="Sprite2D" parent="Rocket"]
+visible = false
 position = Vector2(2.08165e-12, 16)
 texture = ExtResource("3_5dbwd")
 
@@ -56,3 +58,13 @@ texture = ExtResource("3_5dbwd")
 libraries = {
 "": SubResource("AnimationLibrary_kw27c")
 }
+
+[node name="LaunchButton" type="TextureButton" parent="."]
+offset_left = 1037.0
+offset_top = 608.0
+offset_right = 1205.0
+offset_bottom = 666.0
+texture_normal = ExtResource("4_h1x3o")
+stretch_mode = 5
+
+[connection signal="button_down" from="LaunchButton" to="." method="_on_launch_button_button_down"]

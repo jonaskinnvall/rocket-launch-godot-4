@@ -1,8 +1,11 @@
 extends Node2D
 
 @onready var animation_player = $AnimationPlayer
+@onready var launch_button = $LaunchButton
+@onready var rocket_flare = $Rocket/RocketFlare
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _on_launch_button_button_down():
 	animation_player.play("launch")
+	launch_button.disabled = true
+	rocket_flare.show()
